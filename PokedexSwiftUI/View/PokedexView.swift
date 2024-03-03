@@ -38,7 +38,9 @@ struct PokedexView: View {
                     VStack(alignment: .trailing) {
                         if(self.isMenuOpen) {
                             ForEach(viewModel.pokemonTypes, id: \.self) { type in
-                                CircleImage(icon: viewModel.pokemonType(forType: type).imageUrl, radius: 30, color: viewModel.pokemonType(forType: type).color, rotateImage: PokemonViewModel.$defaultFalse)
+                                let pokemonType = viewModel.pokemonType(forType: type)
+                                
+                                CircleImage(icon: pokemonType.imageUrl, radius: 30, color: pokemonType.color, rotateImage: PokemonViewModel.$defaultFalse)
                                     .offset(x: 130)
                                     .onTapGesture {
                                         print("Yolanda")
